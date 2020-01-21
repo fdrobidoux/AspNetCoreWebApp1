@@ -1,0 +1,20 @@
+@model IList<Household>
+@{
+    ViewData["title"] = "Liste de Households";
+    Exception error = ViewBag.error ?? null;
+}
+
+@if (error != null)
+{
+    Html.RenderPartial("Exception", error);
+}
+else
+{
+    @foreach (Household item in @ViewData.Model)
+    {
+        <p>
+            <b>Id</b><br />
+            <span>@item.Id</span>
+        </p>
+    }
+}
